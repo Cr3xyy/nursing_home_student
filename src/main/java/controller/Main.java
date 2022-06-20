@@ -12,6 +12,8 @@ import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
+/*TEST*/
+
 public class Main extends Application {
 
     private Stage primaryStage;
