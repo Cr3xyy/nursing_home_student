@@ -16,10 +16,16 @@ public class DAOFactory {
     }
 
     public TreatmentDAO createTreatmentDAO() {
+
         return new TreatmentDAO(ConnectionBuilder.getConnection());
     }
 
     public PatientDAO createPatientDAO() {
+
         return new PatientDAO(ConnectionBuilder.getConnection());
+    }
+
+    public CaregiverDAO createCaregiverDAO() {
+        return new CaregiverDAO(ConnectionBuilder.getConnection());
     }
 }
