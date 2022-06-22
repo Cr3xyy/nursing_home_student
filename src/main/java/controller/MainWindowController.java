@@ -1,9 +1,13 @@
 package controller;
 
+import Manager.LoginManager;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
+
+import java.awt.*;
 import java.io.IOException;
 
 public class MainWindowController {
@@ -32,6 +36,7 @@ public class MainWindowController {
         }
         AllTreatmentController controller = loader.getController();
     }
+
     @FXML
     private void handleShowAllCaregiver(ActionEvent e) {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/AllCaregiverView.fxml"));
@@ -42,4 +47,6 @@ public class MainWindowController {
         }
         AllCaregiverController controller = loader.getController();
     }
+
+
 }
