@@ -24,6 +24,12 @@
             <TableColumn fx:id="colCareLevel" onEditCommit="#handleOnEditCareLevel" prefWidth="75.0" text="Pflegegrad" />
             <TableColumn fx:id="colRoom" onEditCommit="#handleOnEditRoomnumber" prefWidth="75.0" text="Raum" />
 
+            /*10 Jahre Sperren und löschen*/
+            /*Daten nicht mehr gebraucht? dann kann man diese Sperren*/
+            /*10 Jahre vorbei extra fenster wo gefragt wird ob gelöscht werden soll*/
+            /*Extra Checkbox wo gesperrte angezeigt werden können oder nicht*/
+
+
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
