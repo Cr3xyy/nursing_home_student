@@ -11,6 +11,8 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import model.Patient;
 import utils.DateConverter;
 import datastorage.DAOFactory;
+
+import javax.swing.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -20,6 +22,7 @@ import java.util.List;
  * The <code>AllPatientController</code> contains the entire logic of the patient view. It determines which data is displayed and how to react to events.
  */
 public class AllPatientController {
+
     @FXML
     private TableView<Patient> tableView;
     @FXML
