@@ -9,55 +9,77 @@ import java.util.List;
 /**
  * Patients live in a NURSING home and are treated by nurses.
  */
-public class Caregiver extends Person {
-    private long pid;
-    private String phonenumber;
+public class Caregiver {
+    private long cid;
+    private String Firstname;
+    private String Surname;
+    private String Telephone;
     private List<Caregiver> allCaregivers = new ArrayList<Caregiver>();
 
     /**
      * constructs a patient from the given params.
-     * @param firstName
-     * @param surname
-     * @param phonenumber
+     *
+     * @param Firstname
+     * @param Surname
+     * @param Telephone
      */
-    public Caregiver(String firstName, String surname, String phonenumber) {
-        super(firstName, surname);
-        this.phonenumber = phonenumber;
+    public Caregiver(String Firstname, String Surname, String Telephone) {
+        this.Firstname = Firstname;
+        this.Surname = Surname;
+        this.Telephone = Telephone;
     }
 
     /**
      * constructs a patient from the given params.
-     * @param pid
-     * @param firstName
-     * @param surname
-     * @param phonenumber
+     *
+     * @param cid
+     * @param Firstname
+     * @param Surname
+     * @param Telephone
      */
-    public Caregiver(long pid, String firstName, String surname, String phonenumber) {
-        super(firstName, surname);
-        this.pid = pid;
-        this.phonenumber = phonenumber;
+    public Caregiver(long cid, String Firstname, String Surname, String Telephone) {
+        this.Firstname = Firstname;
+        this.Surname = Surname;
+        this.Telephone = Telephone;
     }
 
     /**
-     *
      * @return patient id
      */
-    public long getPid() {
-        return pid;
+    public long getCid() {
+        return cid;
     }
 
-
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getFirstname() {
+        return Firstname;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setFirstname(String Firstname) {
+
+        this.Firstname = Firstname;
+    }
+
+    public String getSurname() {
+        return Surname;
+    }
+
+    public void setSurname(String Surname) {
+
+        this.Surname = Surname;
+    }
+
+    public String getTelephone() {
+        return Telephone;
+    }
+
+    public void setTelephone(String phonenumber) {
+        this.Telephone = Telephone;
     }
 
 
     /**
      * adds a treatment to the treatment-list, if it does not already contain it.
+     *
      * @param m Treatment
      * @return true if the treatment was not already part of the list. otherwise false
      */
@@ -70,14 +92,13 @@ public class Caregiver extends Person {
     }
 
     /**
-     *
      * @return string-representation of the caregiver
      */
     public String toString() {
-        return "Caregiver" + "\nMNID: " + this.pid +
-                "\nFirstname: " + this.getFirstName() +
-                "\nSurname: " + this.getSurname() +
-                "\nPhonenumber:" + this.phonenumber +
+        return "Caregiver" + "\nMNID: " + this.cid +
+                "\nFirstname: " + this.Firstname +
+                "\nSurname: " + this.Surname +
+                "\nTelephone:" + this.Telephone +
                 "\n";
     }
 }

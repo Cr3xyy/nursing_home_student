@@ -40,6 +40,6 @@ public class MainWindowController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        AllTreatmentController controller = loader.getController();
+        AllCaregiverController controller = loader.getController();
     }
 }

@@ -12,7 +12,6 @@ import model.Patient;
 import utils.DateConverter;
 import datastorage.DAOFactory;
 
-import javax.swing.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
@@ -37,8 +36,6 @@ public class AllPatientController {
     private TableColumn<Patient, String> colCareLevel;
     @FXML
     private TableColumn<Patient, String> colRoom;
-    //@FXML
-   // private TableColumn<Patient, String> colAssets;
 
     @FXML
     Button btnDelete;
@@ -84,9 +81,6 @@ public class AllPatientController {
 
         this.colRoom.setCellValueFactory(new PropertyValueFactory<Patient, String>("roomnumber"));
         this.colRoom.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        //this.colAssets.setCellValueFactory(new PropertyValueFactory<Patient, String>("assets"));
-        //this.colAssets.setCellFactory(TextFieldTableCell.forTableColumn());
 
         //Anzeigen der Daten
         this.tableView.setItems(this.tableviewContent);

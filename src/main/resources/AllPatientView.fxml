@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-       /* JCheckBox Sperren; //Checkbox für Sperren //Implementaion der Checkbox
+       <!---/* JCheckBox Sperren; //Checkbox für Sperren //Implementaion der Checkbox
 
         Sperren = new JCheckBox("Gesperrte anzeigen"); //Erstellen der Checkbox
         Sperren.setBounds(10,200,150,25); //Formation der Checkbox
-        add(Sperren);*/ //Adden der Checkbox
+        add(Sperren);*/ //Adden der Checkbox-->
 
 <AnchorPane prefHeight="500.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AllPatientController">
    <children>
@@ -30,11 +30,11 @@
             <TableColumn fx:id="colCareLevel" onEditCommit="#handleOnEditCareLevel" prefWidth="75.0" text="Pflegegrad" />
             <TableColumn fx:id="colRoom" onEditCommit="#handleOnEditRoomnumber" prefWidth="75.0" text="Raum" />
 
-            /*10 Jahre Sperren und löschen*/
+           <!--- /*10 Jahre Sperren und löschen*/
             /*Daten nicht mehr gebraucht? dann kann man diese Sperren*/
             /*10 Jahre vorbei extra fenster wo gefragt wird ob gelöscht werden soll*/
 
-            /*Extra Checkbox wo gesperrte angezeigt werden können oder nicht*/
+            /*Extra Checkbox wo gesperrte angezeigt werden können oder nicht*/-->
 
 
         </columns>
