@@ -29,7 +29,6 @@ public class Patient extends Person {
         this.dateOfBirth = dateOfBirth;
         this.careLevel = careLevel;
         this.roomnumber = roomnumber;
-        //this.assets = assets;
     }
 
     /**

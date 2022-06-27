@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.Caregiver;
 import model.Patient;
 import model.Treatment;
 import datastorage.DAOFactory;
@@ -35,6 +36,8 @@ public class AllTreatmentController {
     @FXML
     private TableColumn<Treatment, String> colDescription;
     @FXML
+    private TableColumn<Treatment, String> colCaregiver;
+    @FXML
     private ComboBox<String> comboBox;
     @FXML
     private Button btnNewTreatment;
@@ -47,6 +50,7 @@ public class AllTreatmentController {
     private ObservableList<String> myComboBoxData =
             FXCollections.observableArrayList();
     private ArrayList<Patient> patientList;
+    private ArrayList<Caregiver> caregiverList;
     private Main main;
 
     public void initialize() {
@@ -61,6 +65,7 @@ public class AllTreatmentController {
         this.colBegin.setCellValueFactory(new PropertyValueFactory<Treatment, String>("begin"));
         this.colEnd.setCellValueFactory(new PropertyValueFactory<Treatment, String>("end"));
         this.colDescription.setCellValueFactory(new PropertyValueFactory<Treatment, String>("description"));
+        this.colCaregiver.setCellValueFactory(new PropertyValueFactory<Treatment, String>("pfleger"));
         this.tableView.setItems(this.tableviewContent);
         createComboBoxData();
     }
@@ -110,7 +115,7 @@ public class AllTreatmentController {
                 e.printStackTrace();
             }
         }
-        Patient patient = searchInList(p);
+        Patient patient = searchInListPatient(p);
         if(patient !=null){
             try {
                 allTreatments = dao.readTreatmentsByPid(patient.getPid());
@@ -123,7 +128,8 @@ public class AllTreatmentController {
         }
     }
 
-    private Patient searchInList(String surname){
+
+    private Patient searchInListPatient(String surname){
         for (int i =0; i<this.patientList.size();i++){
             if(this.patientList.get(i).getSurname().equals(surname)){
                 return this.patientList.get(i);
@@ -131,6 +137,16 @@ public class AllTreatmentController {
         }
         return null;
     }
+
+    private Caregiver searchInListCaregiver(String Surname){
+        for (int i =0; i<this.caregiverList.size();i++){
+            if(this.caregiverList.get(i).getSurname().equals(Surname)){
+                return this.caregiverList.get(i);
+            }
+        }
+        return null;
+    }
+
 
     @FXML
     public void handleDelete(){
@@ -148,8 +164,10 @@ public class AllTreatmentController {
     public void handleNewTreatment() {
         try{
             String p = this.comboBox.getSelectionModel().getSelectedItem();
-            Patient patient = searchInList(p);
-            newTreatmentWindow(patient);
+            String c = this.comboBox.getSelectionModel().getSelectedItem();
+            Patient patient = searchInListPatient(p);
+            Caregiver caregiver = searchInListCaregiver(c);
+            newTreatmentWindow(patient, caregiver);
         }
         catch(NullPointerException e){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -172,7 +190,7 @@ public class AllTreatmentController {
         });
     }
 
-    public void newTreatmentWindow(Patient patient){
+    public void newTreatmentWindow(Patient patient, Caregiver caregiver){
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/NewTreatmentView.fxml"));
             AnchorPane pane = loader.load();
@@ -181,7 +199,7 @@ public class AllTreatmentController {
             Stage stage = new Stage();
 
             NewTreatmentController controller = loader.getController();
-            controller.initialize(this, stage, patient);
+            controller.initialize(this, stage, patient, caregiver);
 
             stage.setScene(scene);
             stage.setResizable(false);
