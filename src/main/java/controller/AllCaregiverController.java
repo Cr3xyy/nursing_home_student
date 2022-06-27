@@ -120,8 +120,8 @@ public class AllCaregiverController {
         List<Caregiver> allCaregivers;
         try {
             allCaregivers = dao.readAll();
-            for (Caregiver p : allCaregivers) {
-                this.tableviewContent.add(p);
+            for (Caregiver c : allCaregivers) {
+                this.tableviewContent.add(c);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -133,8 +133,10 @@ public class AllCaregiverController {
      */
     @FXML
     public void handleDeleteRow() {
+        TreatmentDAO tDao = DAOFactory.getDAOFactory().createTreatmentDAO();
         Caregiver selectedItem = this.tableView.getSelectionModel().getSelectedItem();
         try {
+            tDao.deleteByPid(selectedItem.getCid());
             dao.deleteById(selectedItem.getCid());
             this.tableView.getItems().remove(selectedItem);
         }catch (SQLException e){

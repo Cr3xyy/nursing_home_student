@@ -38,6 +38,7 @@ public class Caregiver {
      * @param Telephone
      */
     public Caregiver(long cid, String Firstname, String Surname, String Telephone) {
+        this.cid = cid;
         this.Firstname = Firstname;
         this.Surname = Surname;
         this.Telephone = Telephone;

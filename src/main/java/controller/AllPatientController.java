@@ -51,8 +51,6 @@ public class AllPatientController {
     TextField txtCarelevel;
     @FXML
     TextField txtRoom;
-    //@FXML
-   //private TextField txtAssets;
 
     private ObservableList<Patient> tableviewContent = FXCollections.observableArrayList();
     private PatientDAO dao;
@@ -136,15 +134,6 @@ public class AllPatientController {
         doUpdate(event);
     }
 
-    /**
-     * handles new asset value
-     * @param event event including the value that a user entered into the cell
-     */
-    /*@FXML
-    public void handleOnEditAssets(TableColumn.CellEditEvent<Patient, String> event){
-        event.getRowValue().setAssets(event.getNewValue());
-        doUpdate(event);
-    }*/
 
     /**
      * updates a patient by calling the update-Method in the {@link PatientDAO}

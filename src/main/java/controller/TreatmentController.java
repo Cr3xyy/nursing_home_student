@@ -18,6 +18,8 @@ public class TreatmentController {
     @FXML
     private Label lblCarelevel;
     @FXML
+    private Label lblCaregiver;
+    @FXML
     private TextField txtBegin;
     @FXML
     private TextField txtEnd;
