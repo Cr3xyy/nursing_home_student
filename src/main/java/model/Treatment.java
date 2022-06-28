@@ -15,7 +15,7 @@ public class Treatment {
     private String remarks;
     private String surname;
 
-    public Treatment(long pid,long cid, LocalDate date, LocalTime begin,
+    public Treatment(long pid, LocalDate date, LocalTime begin,
                      LocalTime end, String description, String remarks) {
         this.pid = pid;
         this.cid = cid;
