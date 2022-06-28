@@ -75,14 +75,12 @@
             <DatePicker fx:id="datepicker" prefWidth="192.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label fx:id="lblFirstnamePatient" text="Vorname" GridPane.columnIndex="1" />
             <Label fx:id="lblSurnamePatient" text="Nachname" GridPane.columnIndex="3" />
-            <Label text="Pfleger:" GridPane.columnIndex="2" GridPane.rowIndex="2">
-            <ComboBox fx:id="comboBoxPfleger" prefHeight="26.0" prefWidth="193.0" onAction="#handleComboBoxCaregiver" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label fx:id="LblSurnameCaregiver" text="Pfleger:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <ComboBox fx:id="comboBoxPfleger" prefHeight="26.0" prefWidth="193.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="lblSurnamePatient1" text="Nachname" />
-            <ComboBox fx:id="comboBoxCaregiver" prefHeight="26.0" prefWidth="191.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <HBox layoutX="298.0" layoutY="237.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="50.0">

@@ -1,33 +1,31 @@
 package model;
 
 import utils.DateConverter;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Treatment {
     private long tid;
     private long pid;
-    private long cid;
+    private String cid;
     private LocalDate date;
     private LocalTime begin;
     private LocalTime end;
     private String description;
     private String remarks;
-    private String surname;
 
     public Treatment(long pid, LocalDate date, LocalTime begin,
                      LocalTime end, String description, String remarks) {
         this.pid = pid;
-        this.cid = cid;
         this.date = date;
         this.begin = begin;
         this.end = end;
         this.description = description;
         this.remarks = remarks;
-        this.surname = surname;
     }
 
-    public Treatment(long tid, long pid, long cid,LocalDate date, LocalTime begin,
+    public Treatment(long tid, long pid, LocalDate date, LocalTime begin,
                      LocalTime end, String description, String remarks) {
         this.tid = tid;
         this.pid = pid;
@@ -37,7 +35,6 @@ public class Treatment {
         this.end = end;
         this.description = description;
         this.remarks = remarks;
-        this.surname = surname;
     }
 
     public long getTid() {
@@ -48,8 +45,8 @@ public class Treatment {
         return this.pid;
     }
 
-    public long getCid() {
-        return this.cid;
+    public String getCid() {
+        return cid;
     }
 
     public String getDate() {
@@ -95,18 +92,9 @@ public class Treatment {
         this.remarks = remarks;
     }
 
-    public String getSurname(){
-        return surname;
-    }
-
-    public void setSurname(String surname){
-        this.surname = surname;
-    }
-
     public String toString() {
         return "\nBehandlung" + "\nTID: " + this.tid +
                 "\nPID: " + this.pid +
-                "\nCid: " + this.cid +
                 "\nDate: " + this.date +
                 "\nBegin: " + this.begin +
                 "\nEnd: " + this.end +

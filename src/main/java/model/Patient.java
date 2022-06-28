@@ -52,6 +52,7 @@ public class Patient extends Person {
      * @return patient id
      */
     public long getPid() {
+
         return pid;
     }
 
@@ -88,9 +89,10 @@ public class Patient extends Person {
         this.careLevel = careLevel;
     }
 
+
     /**
      *
-     * @return roomNumber as string
+     * @return roomnumber as string
      */
     public String getRoomnumber() {
         return roomnumber;
@@ -98,16 +100,14 @@ public class Patient extends Person {
 
     /**
      *
-     * @param roomnumber
+     * @param roomnumber new roomnumber
      */
     public void setRoomnumber(String roomnumber) {
         this.roomnumber = roomnumber;
     }
 
     /**
-     *
-     * @return assets as string
-     */
+
 
 
     /**

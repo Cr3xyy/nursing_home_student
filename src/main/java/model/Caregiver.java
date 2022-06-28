@@ -9,9 +9,9 @@ import java.util.List;
 public class Caregiver {
     private long cid;
     private String Firstname;
-    private String Surname;
+    private String surname;
     private String Telephone;
-    private List<Caregiver> allCaregivers = new ArrayList<Caregiver>();
+    private List<Treatment> allTreatments = new ArrayList<Treatment>();
 
     /**
      * constructs a patient from the given params.
@@ -21,7 +21,7 @@ public class Caregiver {
      */
     public Caregiver(String Firstname, String Surname, String Telephone) {
         this.Firstname = Firstname;
-        this.Surname = Surname;
+        this.surname = Surname;
         this.Telephone = Telephone;
     }
 
@@ -36,7 +36,7 @@ public class Caregiver {
     public Caregiver(long cid, String Firstname, String Surname, String Telephone) {
         this.cid = cid;
         this.Firstname = Firstname;
-        this.Surname = Surname;
+        this.surname = Surname;
         this.Telephone = Telephone;
     }
 
@@ -57,12 +57,12 @@ public class Caregiver {
     }
 
     public String getSurname() {
-        return Surname;
+        return surname;
     }
 
-    public void setSurname(String Surname) {
+    public void setSurname(String surname) {
 
-        this.Surname = Surname;
+        this.surname = surname;
     }
 
     public String getTelephone() {
@@ -80,9 +80,9 @@ public class Caregiver {
      * @param m Treatment
      * @return true if the treatment was not already part of the list. otherwise false
      */
-    public boolean add(Caregiver m) {
-        if (!this.allCaregivers.contains(m)) {
-            this.allCaregivers.add(m);
+    public boolean add(Treatment m) {
+        if (!this.allTreatments.contains(m)) {
+            this.allTreatments.add(m);
             return true;
         }
         return false;
@@ -94,7 +94,7 @@ public class Caregiver {
     public String toString() {
         return "Caregiver" + "\nMNID: " + this.cid +
                 "\nFirstname: " + this.Firstname +
-                "\nSurname: " + this.Surname +
+                "\nPfleger: " + this.surname +
                 "\nTelephone:" + this.Telephone +
                 "\n";
     }

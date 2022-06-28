@@ -1,11 +1,13 @@
 package controller;
 
+import datastorage.CaregiverDAO;
 import datastorage.DAOFactory;
 import datastorage.PatientDAO;
 import datastorage.TreatmentDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import model.Caregiver;
 import model.Patient;
 import model.Treatment;
 import utils.DateConverter;
@@ -31,13 +33,16 @@ public class TreatmentController {
     private Button btnChange;
     @FXML
     private Button btnCancel;
-
+    @FXML
+    private Label lblCaregiver;
     private AllTreatmentController controller;
     private Stage stage;
     private Patient patient;
     private Treatment treatment;
+    private Caregiver caregiver;
 
-    public void initializeController(AllTreatmentController controller, Stage stage, Treatment treatment) {
+
+    public void initializeControllerPatient(AllTreatmentController controller, Stage stage, Treatment treatment) {
         this.stage = stage;
         this.controller= controller;
         PatientDAO pDao = DAOFactory.getDAOFactory().createPatientDAO();
@@ -51,14 +56,17 @@ public class TreatmentController {
     }
 
     private void showData(){
+        System.out.println(lblCaregiver.getText());
         this.lblPatientName.setText(patient.getSurname()+", "+patient.getFirstName());
         this.lblCarelevel.setText(patient.getCareLevel());
+        this.lblCaregiver.setText(treatment.getCid());
         LocalDate date = DateConverter.convertStringToLocalDate(treatment.getDate());
         this.datepicker.setValue(date);
         this.txtBegin.setText(this.treatment.getBegin());
         this.txtEnd.setText(this.treatment.getEnd());
         this.txtDescription.setText(this.treatment.getDescription());
         this.taRemarks.setText(this.treatment.getRemarks());
+        System.out.println(lblCaregiver.getText());
     }
 
     @FXML

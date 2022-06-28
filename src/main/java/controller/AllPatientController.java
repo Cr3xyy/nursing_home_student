@@ -1,5 +1,6 @@
 package controller;
 
+import datastorage.CaregiverDAO;
 import datastorage.PatientDAO;
 import datastorage.TreatmentDAO;
 import javafx.collections.FXCollections;
@@ -8,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import model.Caregiver;
 import model.Patient;
 import utils.DateConverter;
 import datastorage.DAOFactory;
@@ -52,7 +54,8 @@ public class AllPatientController {
     TextField txtRoom;
 
     private ObservableList<Patient> tableviewContent = FXCollections.observableArrayList();
-    private PatientDAO dao;
+    private PatientDAO pdao;
+    private CaregiverDAO cdao;
 
     /**
      * Initializes the corresponding fields. Is called as soon as the corresponding FXML file is to be displayed.
@@ -90,7 +93,7 @@ public class AllPatientController {
     @FXML
     public void handleOnEditFirstname(TableColumn.CellEditEvent<Patient, String> event){
         event.getRowValue().setFirstName(event.getNewValue());
-        doUpdate(event);
+        doUpdateP(event);
     }
 
     /**
@@ -100,7 +103,7 @@ public class AllPatientController {
     @FXML
     public void handleOnEditSurname(TableColumn.CellEditEvent<Patient, String> event){
         event.getRowValue().setSurname(event.getNewValue());
-        doUpdate(event);
+        doUpdateP(event);
     }
 
     /**
@@ -110,7 +113,7 @@ public class AllPatientController {
     @FXML
     public void handleOnEditDateOfBirth(TableColumn.CellEditEvent<Patient, String> event){
         event.getRowValue().setDateOfBirth(event.getNewValue());
-        doUpdate(event);
+        doUpdateP(event);
     }
 
     /**
@@ -120,7 +123,7 @@ public class AllPatientController {
     @FXML
     public void handleOnEditCareLevel(TableColumn.CellEditEvent<Patient, String> event){
         event.getRowValue().setCareLevel(event.getNewValue());
-        doUpdate(event);
+        doUpdateP(event);
     }
 
     /**
@@ -130,17 +133,24 @@ public class AllPatientController {
     @FXML
     public void handleOnEditRoomnumber(TableColumn.CellEditEvent<Patient, String> event){
         event.getRowValue().setRoomnumber(event.getNewValue());
-        doUpdate(event);
+        doUpdateP(event);
     }
-
 
     /**
      * updates a patient by calling the update-Method in the {@link PatientDAO}
      * @param t row to be updated by the user (includes the patient)
      */
-    private void doUpdate(TableColumn.CellEditEvent<Patient, String> t) {
+    private void doUpdateP(TableColumn.CellEditEvent<Patient, String> t) {
         try {
-            dao.update(t.getRowValue());
+            pdao.update(t.getRowValue());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void doUpdateC(TableColumn.CellEditEvent<Caregiver, String> c){
+        try {
+            cdao.update(c.getRowValue());
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -151,10 +161,10 @@ public class AllPatientController {
      */
     private void readAllAndShowInTableView() {
         this.tableviewContent.clear();
-        this.dao = DAOFactory.getDAOFactory().createPatientDAO();
+        this.pdao = DAOFactory.getDAOFactory().createPatientDAO();
         List<Patient> allPatients;
         try {
-            allPatients = dao.readAll();
+            allPatients = pdao.readAll();
             for (Patient p : allPatients) {
                 this.tableviewContent.add(p);
             }
@@ -172,7 +182,7 @@ public class AllPatientController {
         Patient selectedItem = this.tableView.getSelectionModel().getSelectedItem();
         try {
             tDao.deleteByPid(selectedItem.getPid());
-            dao.deleteById(selectedItem.getPid());
+            pdao.deleteById(selectedItem.getPid());
             this.tableView.getItems().remove(selectedItem);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -193,7 +203,7 @@ public class AllPatientController {
         //String assets = this.txtAssets.getText();
         try {
             Patient p = new Patient(firstname, surname, date, carelevel, room);/*,assets*/
-            dao.create(p);
+            pdao.create(p);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -210,6 +220,5 @@ public class AllPatientController {
         this.txtBirthday.clear();
         this.txtCarelevel.clear();
         this.txtRoom.clear();
-        //this.txtAssets.clear();
     }
 }
