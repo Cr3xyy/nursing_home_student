@@ -40,7 +40,7 @@ public class AllCaregiverController {
     @FXML
     TextField txtFirstname;
     @FXML
-    TextField txtTelephone;
+    TextField txtTelephone; //Geburstag entfernt
 
     private ObservableList<Caregiver> tableviewContent = FXCollections.observableArrayList();
     private CaregiverDAO dao;

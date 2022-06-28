@@ -10,11 +10,11 @@ import java.util.List;
  * Patients live in a NURSING home and are treated by nurses.
  */
 public class Caregiver {
-    private long cid;
-    private String Firstname;
-    private String Surname;
-    private String Telephone;
-    private List<Caregiver> allCaregivers = new ArrayList<Caregiver>();
+    private long cid;         /**Caregiver ID für Pfleger Liste*/
+    private String Firstname; /**Vorname für Pfleger Liste*/
+    private String Surname;   /**Nachname für Pfleger Liste*/
+    private String Telephone; /**Telefon nummer für Pfleger Liste*/
+    private List<Caregiver> allCaregivers = new ArrayList<Caregiver>(); /**CaregiverListe erstellt*/
 
     /**
      * constructs a patient from the given params.
@@ -27,6 +27,7 @@ public class Caregiver {
         this.Firstname = Firstname;
         this.Surname = Surname;
         this.Telephone = Telephone;
+        /**Vor, nachname und Telfonummer zu Caregiver hinzugefügt*/
     }
 
     /**
@@ -42,38 +43,38 @@ public class Caregiver {
         this.Firstname = Firstname;
         this.Surname = Surname;
         this.Telephone = Telephone;
+        /**ID, Vorname, Nachname und Telefon nummer werden zu den variablen hinzugefügt*/
     }
 
     /**
      * @return patient id
      */
-    public long getCid() {
+    public long getCid() { /**Gettet und returnt die Caregiver ID*/
         return cid;
     }
-
-    public String getFirstname() {
+    public String getFirstname() { /**Gettet returnt den Caregiver Vornamen*/
         return Firstname;
     }
 
-    public void setFirstname(String Firstname) {
+    public void setFirstname(String Firstname) { /**Setzt den Vornamen in die Caregiver Liste*/
 
         this.Firstname = Firstname;
     }
 
-    public String getSurname() {
+    public String getSurname() {/**Gettet returnt den Caregiver Nachnamen*/
         return Surname;
     }
 
-    public void setSurname(String Surname) {
+    public void setSurname(String Surname) {/**Setzt den Nachnamen in die Caregiver Liste*/
 
         this.Surname = Surname;
     }
 
-    public String getTelephone() {
+    public String getTelephone() {/**Gettet returnt den Caregiver Telefonnummer*/
         return Telephone;
     }
 
-    public void setTelephone(String phonenumber) {
+    public void setTelephone(String phonenumber) { /**Setzt die Telefonnummer in die Caregiver Liste*/
         this.Telephone = Telephone;
     }
 

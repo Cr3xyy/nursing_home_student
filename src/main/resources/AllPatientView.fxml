@@ -61,7 +61,7 @@
                   <TextField fx:id="txtBirthday" minWidth="160.0" prefWidth="160.0" promptText="Geburtstag" GridPane.columnIndex="2" />
                   <TextField fx:id="txtCarelevel" prefHeight="26.0" prefWidth="200.0" promptText="Pflegegrad" GridPane.rowIndex="1" />
                   <TextField fx:id="txtRoom" prefHeight="26.0" prefWidth="200.0" promptText="Raum" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <CheckBox fx:id="cbSperren" mnemonicParsing="false" text="Sperren" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="cbSperren" mnemonicParsing="false" text="Sperren" GridPane.columnIndex="2" GridPane.rowIndex="1" /> <!--- /*Sperren Checkbox*/-->
 
                 </children>
                 <padding>
