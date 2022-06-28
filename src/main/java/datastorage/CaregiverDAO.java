@@ -1,12 +1,10 @@
 package datastorage;
 
 import model.Caregiver;
-import utils.DateConverter;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +14,7 @@ public class CaregiverDAO extends DAOimp<Caregiver> {
 
     /**
      * constructs Onbject. Calls the Constructor from <code>DAOImp</code> to store the connection.
+     *
      * @param conn
      */
     public CaregiverDAO(Connection conn) {
@@ -25,17 +24,19 @@ public class CaregiverDAO extends DAOimp<Caregiver> {
 
     /**
      * generates a <code>INSERT INTO</code>-Statement for a given caregiver
+     *
      * @param caregiver for which a specific INSERT INTO is to be created
      * @return <code>String</code> with the generated SQL.
      */
     @Override
     protected String getCreateStatementString(Caregiver caregiver) {
-        return String.format("INSERT INTO caregiver (firstname, surname, telephone) VALUES ('%s', '%s', '%s')",
+        return String.format("INSERT INTO caregiver (firstname, surname, telephone) VALUES ('%s', '%s', '%s','%S')",
                 caregiver.getFirstname(), caregiver.getSurname(), caregiver.getTelephone());
     }
 
     /**
      * generates a <code>select</code>-Statement for a given key
+     *
      * @param key for which a specific SELECTis to be created
      * @return <code>String</code> with the generated SQL.
      */
@@ -46,20 +47,21 @@ public class CaregiverDAO extends DAOimp<Caregiver> {
 
     /**
      * maps a <code>ResultSet</code> to a <code>Patient</code>
+     *
      * @param result ResultSet with a single row. Columns will be mapped to a patient-object.
      * @return patient with the data from the resultSet.
      */
     @Override
     protected Caregiver getInstanceFromResultSet(ResultSet result) throws SQLException {
         Caregiver c = null;
-        LocalDate date = DateConverter.convertStringToLocalDate(result.getString(4));
         c = new Caregiver(result.getInt(1), result.getString(2),
-                result.getString(3), result.getString(3));
+                result.getString(3), result.getString(4));
         return c;
     }
 
     /**
      * generates a <code>SELECT</code>-Statement for all patients.
+     *
      * @return <code>String</code> with the generated SQL.
      */
     @Override
@@ -69,6 +71,7 @@ public class CaregiverDAO extends DAOimp<Caregiver> {
 
     /**
      * maps a <code>ResultSet</code> to a <code>Patient-List</code>
+     *
      * @param result ResultSet with a multiple rows. Data will be mapped to caregiver-object.
      * @return ArrayList with patients from the resultSet.
      */
@@ -78,7 +81,7 @@ public class CaregiverDAO extends DAOimp<Caregiver> {
         Caregiver c = null;
         while (result.next()) {
             c = new Caregiver(result.getInt(1), result.getString(2),
-                    result.getString(3),result.getString(4));
+                    result.getString(3), result.getString(4));
             list.add(c);
         }
         return list;
@@ -87,17 +90,20 @@ public class CaregiverDAO extends DAOimp<Caregiver> {
 
     /**
      * generates a <code>UPDATE</code>-Statement for a given patient
+     *
      * @param caregiver for which a specific update is to be created
      * @return <code>String</code> with the generated SQL.
      */
     @Override
     protected String getUpdateStatementString(Caregiver caregiver) {
         return String.format("UPDATE caregiver SET firstname = '%s', surname = '%s', telephone = 's'" +
-                "WHERE cid = %d", caregiver.getFirstname(), caregiver.getSurname(), caregiver.getTelephone(),caregiver.getCid());
+                "WHERE cid = %d", caregiver.getFirstname(), caregiver.getSurname(), caregiver.getTelephone(),
+                caregiver.getCid());
     }
 
     /**
      * generates a <code>delete</code>-Statement for a given key
+     *
      * @param key for which a specific DELETE is to be created
      * @return <code>String</code> with the generated SQL.
      */

@@ -13,7 +13,6 @@ public class Patient extends Person {
     private LocalDate dateOfBirth;
     private String careLevel;
     private String roomnumber;
-   // private String assets;
     private List<Treatment> allTreatments = new ArrayList<Treatment>();
 
     /**

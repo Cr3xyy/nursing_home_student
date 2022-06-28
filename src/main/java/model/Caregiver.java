@@ -1,8 +1,5 @@
 package model;
 
-import utils.DateConverter;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +15,6 @@ public class Caregiver {
 
     /**
      * constructs a patient from the given params.
-     *
      * @param Firstname
      * @param Surname
      * @param Telephone
@@ -73,7 +69,7 @@ public class Caregiver {
         return Telephone;
     }
 
-    public void setTelephone(String phonenumber) {
+    public void setTelephone(String Telephone) {
         this.Telephone = Telephone;
     }
 

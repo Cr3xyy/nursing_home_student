@@ -53,7 +53,7 @@ public class PatientDAO extends DAOimp<Patient> {
         LocalDate date = DateConverter.convertStringToLocalDate(result.getString(4));
         p = new Patient(result.getInt(1), result.getString(2),
                 result.getString(3), date, result.getString(5),
-                result.getString(6))/*, result.getString(7)*/;
+                result.getString(6));
         return p;
     }
 

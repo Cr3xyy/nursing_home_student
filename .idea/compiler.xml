@@ -23,4 +23,9 @@
       <module name="Pflegeheim" target="9" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Pflegeheim" options="--add-exports java.base/jdk.internal.access=ALL-UNNAMED" />
+    </option>
+  </component>
 </project>
