@@ -1,13 +1,11 @@
 package controller;
 
-import datastorage.CaregiverDAO;
 import datastorage.DAOFactory;
 import datastorage.PatientDAO;
 import datastorage.TreatmentDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import model.Caregiver;
 import model.Patient;
 import model.Treatment;
 import utils.DateConverter;
@@ -19,8 +17,6 @@ public class TreatmentController {
     private Label lblPatientName;
     @FXML
     private Label lblCarelevel;
-    @FXML
-    private Label lblCaregiverID;
     @FXML
     private TextField txtBegin;
     @FXML
@@ -40,8 +36,6 @@ public class TreatmentController {
     private Stage stage;
     private Patient patient;
     private Treatment treatment;
-    private Caregiver caregiver;
-    private CaregiverDAO cDao;
 
     public void initializeController(AllTreatmentController controller, Stage stage, Treatment treatment) {
         this.stage = stage;
@@ -57,9 +51,7 @@ public class TreatmentController {
     }
 
     private void showData(){
-        String cid = String.valueOf(treatment.getCid());
         this.lblPatientName.setText(patient.getSurname()+", "+patient.getFirstName());
-        this.lblCaregiverID.setText(caregiver.getSurname());
         this.lblCarelevel.setText(patient.getCareLevel());
         LocalDate date = DateConverter.convertStringToLocalDate(treatment.getDate());
         this.datepicker.setValue(date);

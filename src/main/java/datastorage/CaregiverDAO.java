@@ -42,7 +42,7 @@ public class CaregiverDAO extends DAOimp<Caregiver> {
      */
     @Override
     protected String getReadByIDStatementString(long key) {
-        return String.format("SELECT * FROM caregiver WHERE cid = %d", key);
+        return String.format("SELECT * FROM caregiver WHERE cid = %d", key); //Von Patient zu Caregiver geändert
     }
 
     /**
@@ -66,7 +66,7 @@ public class CaregiverDAO extends DAOimp<Caregiver> {
      */
     @Override
     protected String getReadAllStatementString() {
-        return "SELECT * FROM caregiver";
+        return "SELECT * FROM caregiver"; //Von patient zu Caregiver
     }
 
     /**

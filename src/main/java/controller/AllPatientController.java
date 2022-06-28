@@ -21,7 +21,6 @@ import java.util.List;
  * The <code>AllPatientController</code> contains the entire logic of the patient view. It determines which data is displayed and how to react to events.
  */
 public class AllPatientController {
-
     @FXML
     private TableView<Patient> tableView;
     @FXML
